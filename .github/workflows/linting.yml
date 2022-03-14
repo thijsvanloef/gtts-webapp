@@ -9,7 +9,11 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ricardochaves/python-lint@v1.4.0
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
         with:
-          use-flake8: true
+          python-version: "3.9"
+      - name: flake8 Lint
+        uses: py-actions/flake8@v2
