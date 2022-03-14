@@ -1,0 +1,59 @@
+body {
+    font-family: "helvetica", sans-serif;
+    text-align: center;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.123);
+    color: black;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+}
+
+label {
+    display:block;
+}
+
+textarea {
+    width: 75%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    color: black;
+    text-align: left;
+}
+
+.buttons {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.buttons li {
+    margin: 0 10px;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.buttons a i {
+    font-size: 1.1rem;
+    width: 20px;
+    transition: color .4s ease;
+}
+
+.buttons a:hover i {
+    color: darkgray;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>GTTS Web</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        {% if error != '' %} {% block error %}
+        <div class="error-message">{{ error }}</div>
+        {% endblock error %} {% endif %}
+    </header>
+    {% block content %}{% endblock %}
+
+    <footer>
+        <ul class="buttons">
+            <li><a href="https://github.com/thijsvanloef/gtts-webapp"><i class="fa fa-github" title="View on Github"
+                        alt="View on Github"></i></a></li>
+            <li><a href="https://github.com/thijsvanloef/gtts-webapp/issues"><i class="fa fa-wrench" title="Issues"
+                        alt="Issues"></i></a></li>
+            <li><a href="https://github.com/thijsvanloef/gtts-webapp/wiki"><i class="fa fa-book" title="About"
+                        alt="About"></i></a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
