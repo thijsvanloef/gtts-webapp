@@ -1,12 +1,29 @@
+import os
+
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
+from flask_wtf import FlaskForm
 from google.cloud import texttospeech
+from wtforms import TextAreaField
+from wtforms.validators import DataRequired, length
+
 
 app = Flask(__name__)
+load_dotenv()
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+
+class TTSForm(FlaskForm):
+    text = TextAreaField('Text to synthesize', validators=[
+                         DataRequired(), length(max=5000)])
 
 
 @app.route('/')
-def main():
-    return render_template('home.html', error='')
+def form():
+    form = TTSForm()
+    return render_template('form.html',
+                           form=form
+                           )
 
 
 @app.route('/submit', methods=['POST'])
@@ -15,11 +32,11 @@ def submit():
     if request.method == 'POST':
         text = request.form['text']
         if text == '':
-            return render_template('home.html', error='''
+            return render_template('form.html', error='''
             Please enter text to convert.
             ''')
         elif len(text) > 5000:
-            return render_template('home.html', error='''
+            return render_template('form.html', error='''
             Text must be less than 5000 characters.
             ''')
         else:

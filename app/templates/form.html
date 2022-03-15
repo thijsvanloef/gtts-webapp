@@ -1,0 +1,10 @@
+{% extends "layout.html" %} {% block title %}Home{% endblock %} {% block content %}
+
+<form action="/submit" method="POST">
+    {{ form.csrf_token }}
+    {{ form.text.label }} {{ form.text(rows=5) }}
+    <input type="submit" class="btn btn-primary">Submit</button> 
+    {% if error is defined %} {% block error %}
+    <div class="error-message">{{ error }}</div>
+    {% endblock error %} {% endif %}
+</form>{% endblock %}

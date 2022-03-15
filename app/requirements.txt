@@ -4,3 +4,6 @@ google-auth==2.5.0
 requests==2.27.1
 gunicorn==20.1.0
 google-cloud-texttospeech==2.11.0
+WTForms==3.0.1
+flask_wtf==1.0.0
+python-dotenv==0.19.2
